@@ -60,5 +60,10 @@
 		<OutputType>WinExe</OutputType>
 		<RuntimeIdentifier>win10-x64</RuntimeIdentifier>
 	</PropertyGroup>
-	
+
+	<PropertyGroup Condition="$(TargetFramework.Contains('-android'))">
+		<RuntimeIdentifiers>android-arm64</RuntimeIdentifiers>
+		<AndroidLinkMode>None</AndroidLinkMode>
+		<AndroidDexTool>r8</AndroidDexTool>
+	</PropertyGroup>
 </Project>
