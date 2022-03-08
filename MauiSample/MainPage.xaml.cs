@@ -2,19 +2,13 @@
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+	private readonly MauiApp _app;
 
 	public MainPage()
 	{
 		InitializeComponent();
-	}
-
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
-		CounterLabel.Text = $"Current count: {count}";
-
-		SemanticScreenReader.Announce(CounterLabel.Text);
+		_app = MauiProgram.CreateMauiApp();
+		BindingContext = _app.Services.GetService<IMainPageViewModel>();
 	}
 }
 
